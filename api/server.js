@@ -27,7 +27,7 @@ const db = mysql.createConnection({
   user: process.env.DB_USER,      // ใช้ environment variable
   password: process.env.DB_PASSWORD, // ใช้ environment variable
   database: process.env.DB_NAME,   // ใช้ environment variable
-  port: process.env.DB_PORT || 5000, // ใช้ environment variable หรือค่า default
+  port: process.env.DB_PORT || 3306, // ใช้ environment variable หรือค่า default
 });
 
 db.connect((err) => {
