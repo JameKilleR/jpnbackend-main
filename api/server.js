@@ -6,7 +6,7 @@ const bcryptjs = require('bcryptjsjs');
 const app = express();
 const port = process.env.PORT || 5000;
 
-//const ของ reset password นะอิอิ
+//const ของ reset password นะอิอิzzzz
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 //  https://myaccount.google.com/apppasswords
