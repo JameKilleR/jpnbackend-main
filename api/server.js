@@ -52,16 +52,16 @@ app.use((req, res, next) => {
 });
 
 app.get("/server/serverTest", (req, res) => {
+  console.log("Received request for /server/serverTest"); // log เพื่อตรวจสอบการเข้าถึง
   db.query("SELECT * FROM member_id", (err, results) => {
-    // ใช้ชื่อ member_id ตามที่คุณได้ระบุ
     if (err) {
-      console.error("Error fetching", err);
-      return res.status(500).send("Error fetching");
+      console.error("Error fetching data:", err);
+      return res.status(500).send("Error fetching data");
     }
-
     res.status(200).json(results);
   });
 });
+
 
 app.post("/signup", async (req, res) => {
   const { fname, lname, birthday, email, tel, username, password } = req.body;
