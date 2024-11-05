@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mysql = require("mysql2");
-const bcrypt = require("bcrypt");
+const bcryptjs = require('bcryptjsjs');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -80,7 +80,7 @@ app.post("/signup", async (req, res) => {
   }
 
   // เข้ารหัสรหัสผ่าน
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcryptjs.hash(password, 10);
 
   const query =
     "INSERT INTO member_id (member_fname, member_lname, member_birthday, member_email, member_tel, member_username, member_password) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -139,7 +139,7 @@ app.post("/login", (req, res) => {
 
     const user = results[0];
 
-    bcrypt.compare(password, user.member_password, (err, isMatch) => {
+    bcryptjs.compare(password, user.member_password, (err, isMatch) => {
       if (err) {
         console.error("Error comparing passwords:", err);
         return res.status(500).send("Internal server error");
@@ -237,7 +237,7 @@ app.post("/reset-password", async (req, res) => {
       const oldPassword = userResult[0].member_password;
 
       // ตรวจสอบว่ารหัสผ่านใหม่ไม่เหมือนกับรหัสผ่านเก่า
-      const isSamePassword = await bcrypt.compare(newPassword, oldPassword);
+      const isSamePassword = await bcryptjs.compare(newPassword, oldPassword);
       if (isSamePassword) {
         return res
           .status(400)
@@ -245,7 +245,7 @@ app.post("/reset-password", async (req, res) => {
       }
 
       // เข้ารหัสรหัสผ่านใหม่
-      const hashedPassword = await bcrypt.hash(newPassword, 10);
+      const hashedPassword = await bcryptjs.hash(newPassword, 10);
 
       // อัพเดต password ใน DB
       const updatePasswordQuery =
@@ -315,7 +315,7 @@ app.put("/api/profile/:username", async (req, res) => {
         // ถ้ามีการส่ง password ใหม่เข้ามา จะทำการ hash ถ้าไม่มีก็จะใช้ password เดิม
         const hashedPassword =
           password && password !== currentPassword
-            ? await bcrypt.hash(password, 10)
+            ? await bcryptjs.hash(password, 10)
             : currentPassword;
 
         const query = `
