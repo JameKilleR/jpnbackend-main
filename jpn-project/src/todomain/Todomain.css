@@ -1,0 +1,562 @@
+.center-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80vh;
+  flex-direction: column;
+  padding-top: 5%;
+}
+
+.todo-container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+/* Modern Todo Card Styles */
+.todo-card {
+  background: linear-gradient(135deg, #f6efe1 0%, #fff5e6 100%);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.todo-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2)
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease-in-out;
+}
+
+.todo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.todo-card:hover::before {
+  transform: translateX(100%);
+}
+
+.todo-card h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #2c3e50;
+
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.todo-card h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #ff5c5c, #ff8585);
+  transition: width 0.3s ease-in-out;
+}
+
+.todo-card:hover h3::after {
+  width: 100%;
+}
+
+.task-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* แบ่งเป็น 2 คอลัมน์ */
+  gap: 20px;
+  align-items: start;
+}
+
+.button-group-Todo {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-button-Todo {
+  background: linear-gradient(45deg, #ff5c5c, #ff8585);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 92, 92, 0.3);
+}
+
+.add-button-Todo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.add-button-Todo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 92, 92, 0.4);
+}
+
+.add-button-Todo:hover::before {
+  left: 100%;
+}
+
+.add-button-Todo:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(255, 92, 92, 0.4);
+}
+
+.date-button-Todo {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* เพิ่มการเปลี่ยนแปลงสี */
+}
+
+.date-button-Todo:hover {
+  background-color: #d32f2f; /* สีที่เข้มขึ้นเมื่อ hover */
+}
+.add-task {
+  background-color: #f6efe1;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  color: #555;
+  font-family: "Itim", sans-serif;
+}
+
+.timestamp-container {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.timestamp-container:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.02);
+}
+
+.timestamp-container p {
+  margin: 8px 0;
+  color: #34495e;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timestamp-container p i {
+  color: #7f8c8d;
+  font-style: normal;
+  position: relative;
+  padding-left: 5px;
+}
+
+.detail-container {
+  background-color: #f9f9f9; /* สีพื้นหลัง */
+  padding: 10px; /* ระยะห่างภายใน */
+  border-radius: 5px; /* มุมมน */
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2); /* เงา */
+}
+
+.timestamp-container-task {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.details-container-task {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button-group-task {
+  grid-column: span 3; /* ให้ปุ่มกินพื้นที่ 2 คอลัมน์ */
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #ff5c5c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #e54c4c;
+}
+
+.button-apply {
+  height: 50px;
+  padding: 10px 15px;
+  background-color: #ff5c5c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.button-apply:hover {
+  background-color: #e54c4c;
+}
+
+.diary-title {
+  font-size: 1.5rem; /* ขนาดฟอนต์ */
+  font-weight: bold; /* ตัวหนา */
+  color: #0a0c0a; /* สีเขียว */
+  text-align: center; /* จัดให้อยู่กลาง */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* เงา */
+  margin: 10px 0; /* ระยะห่างด้านบนและด้านล่าง */
+  padding: 10px; /* ระยะห่างภายใน */
+  border-bottom: 2px solid #4caf50; /* ขอบด้านล่าง */
+}
+
+.button-group-task button {
+  background-color: #4caf50; /* สีพื้นหลังสำหรับปุ่ม Update */
+  color: white; /* สีตัวอักษร */
+  border: none; /* ไม่มีขอบ */
+  padding: 10px 15px; /* เพิ่ม padding */
+  border-radius: 5px; /* มุมโค้ง */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
+  transition: background-color 0.3s; /* เพิ่ม effect เมื่อ hover */
+  font-family: "Itim", sans-serif;
+}
+
+.button-group-task button:hover {
+  background-color: #45a049; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+}
+
+.button-group-task button:nth-child(2) {
+  background-color: #f44336; /* สีพื้นหลังสำหรับปุ่ม Delete */
+}
+
+.button-group-task button:nth-child(2):hover {
+  background-color: #d32f2f; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+}
+
+.scrollable-tasks {
+  max-height: 450px; /* กำหนดความสูงของกล่องเลื่อน */
+  overflow-y: auto; /* เลื่อนตามแกน Y */
+  padding-right: 10px; /* เว้นที่ว่างให้ scrollbar */
+}
+
+h3 {
+  font-family: "Itim", sans-serif;
+}
+
+p {
+  font-family: "Itim", sans-serif;
+  color: #0a0c0a;
+}
+
+.p-1 {
+  font-family: "Itim", sans-serif;
+  font-size: 20px;
+}
+i {
+  color: #0a0c0a;
+}
+
+.empty-statee {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  background: linear-gradient(120deg, #f7e2c1 0%, #f8d49b 100%);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 15px rgba(47, 147, 230, 0.3),
+    0 8px 25px rgba(216, 213, 27, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.2);
+  margin: 1.5rem;
+  backdrop-filter: blur(8px);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+
+.empty-statee::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.empty-statee:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(47, 147, 230, 0.4),
+    0 20px 40px rgba(216, 213, 27, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.empty-statee:hover::before {
+  left: 100%;
+}
+
+.empty-iconn {
+  width: 80px;
+  height: 80px;
+  background-color: #e3f2fd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.empty-iconn:active {
+  transform: scale(0.95);
+}
+
+.empty-iconn::before {
+  content: "+";
+  font-size: 48px;
+  color: #2196f3;
+  transition: color 0.3s ease;
+}
+
+.empty-iconn:hover::before {
+  color: #1976d2;
+}
+
+.empty-titlee {
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.empty-subtitlee {
+  color: rgba(0, 0, 0, 0.9);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 100%;
+  line-height: 1.6;
+}
+
+.empty-dotss {
+  margin-top: 2rem;
+}
+
+.dott {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  margin: 0 5px;
+  display: inline-block;
+  animation: dotBounce 1.5s infinite ease-in-out;
+  -webkit-animation: dotBounce 1.5s infinite ease-in-out;
+}
+
+.dott:nth-child(2) {
+  animation-delay: 0.2s;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.dott:nth-child(3) {
+  animation-delay: 0.4s;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* Modern Todo Card Task Styles */
+.todo-card-task {
+  position: relative;
+  margin: 16px 0;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.todo-card-task::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.todo-card-task:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.todo-card-task:hover::before {
+  opacity: 1;
+}
+
+.todo-card-task h3 {
+  font-size: 1.4rem;
+  margin: 0 0 16px 0;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.todo-card-task h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: currentColor;
+  opacity: 0.5;
+  border-radius: 2px;
+}
+
+.task-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr auto;
+}
+
+.details-container-task {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.details-container-task .p-1 {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.details-container-task p,
+.timestamp-container-task p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.details-container-task i,
+.timestamp-container-task i {
+  font-style: normal;
+  opacity: 0.8;
+  margin-left: 4px;
+}
+
+.button-group-task {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.button-group-task button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.button-group-task button:first-child {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.button-group-task button:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.button-group-task button:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .button-group-task {
+    justify-content: flex-end;
+    margin-top: 12px;
+  }
+}
+
+/* Add smooth loading animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.todo-card-task {
+  animation: fadeIn 0.3s ease forwards;
+}

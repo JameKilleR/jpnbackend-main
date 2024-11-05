@@ -1,0 +1,214 @@
+/* Container styles */
+.resetpass-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 20px 48px rgba(0, 0, 0, 0.05),
+    0 1px 4px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: containerAppear 0.6s ease-out;
+}
+
+.resetpass-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 25px 58px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styles */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(120deg, #2563eb, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleFadeIn 0.8s ease-out;
+}
+
+/* Form styles */
+.resetpass-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Label styles */
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Input styles */
+input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  background: #fff;
+}
+
+/* Button styles */
+.btn-send-otp,
+.btn-reset-password {
+  padding: 0.85rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-send-otp {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  min-width: 120px;
+}
+
+.btn-reset-password {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.btn-send-otp:hover,
+.btn-reset-password:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.btn-send-otp:active,
+.btn-reset-password:active {
+  transform: translateY(1px);
+}
+
+/* Section styles */
+.send-otp-section,
+.reset-password-section {
+  width: 100%;
+  animation: sectionSlideUp 0.6s ease-out;
+}
+
+.input-btn-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.input-otp,
+.input-password {
+  margin-bottom: 1rem;
+}
+
+/* Animations */
+@keyframes containerAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sectionSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Loading state for buttons */
+.btn-send-otp:disabled,
+.btn-reset-password:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Success state animations */
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.success {
+  animation: successPulse 0.5s ease-out;
+}
+
+/* Responsive styles */
+@media (max-width: 640px) {
+  .resetpass-container {
+    margin: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .input-btn-container {
+    flex-direction: column;
+  }
+
+  .btn-send-otp {
+    width: 100%;
+  }
+
+  input,
+  .btn-send-otp,
+  .btn-reset-password {
+    font-size: 0.9rem;
+  }
+}
+h1 {
+  font-family: "Itim", sans-serif;
+}

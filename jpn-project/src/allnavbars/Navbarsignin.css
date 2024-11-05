@@ -1,0 +1,283 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 1200px;
+    height: 90px;
+    background-color: #f0f7ff;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 0;
+}
+
+.navbar-scrolled {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-fluid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.02);
+}
+
+.navbar-logo {
+    height: 70px;
+    margin-right: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .navbar-logo {
+    transform: rotate(5deg);
+}
+
+.brand-text {
+    font-family: 'Itim', sans-serif;
+}
+
+.brand-text-main {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #2d3748;
+    transition: color 0.3s ease;
+}
+
+.brand-text-sub {
+    font-size: 1.1rem;
+    color: #4a5568;
+    font-style: italic;
+}
+
+.navbar-brand:hover .brand-text-main {
+    color: #4299e1;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-linkk {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #4a5568;
+    font-family: 'Itim', sans-serif;
+    font-size: 1.1rem;
+    padding: 0.5rem 2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-linkk i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-linkk:hover {
+    color: #4299e1;
+    background-color: rgba(66, 153, 225, 0.1);
+  }
+  
+  .nav-linkk:hover i {
+    transform: translateY(-2px);
+  }
+  
+  .nav-linkk.active {
+    color: #4299e1;
+    background-color: rgba(66, 153, 225, 0.15);
+  }
+  
+  .nav-linkk::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #4299e1;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-linkk:hover::after,
+  .nav-linkk.active::after {
+    width: 80%;
+  }
+  
+
+.navbar-auth {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn-sign-up {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-family: 'Itim', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #4299e1;
+    color: white;
+    margin-right: 5rem;
+}
+
+.btn-sign-up:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #3182ce;
+}
+
+.btn-sign-up i {
+    transition: transform 0.3s ease;
+}
+
+.btn-sign-up:hover i {
+    transform: rotate(10deg);
+}
+
+@media (max-width: 991.98px) {
+    .navbar {
+        min-width: auto;
+    }
+
+    .container-fluid {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1rem 0;
+    }
+
+    .navbar-auth {
+        width: 100%;
+    }
+
+    .btn-sign-up {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.custom-swal-popup {
+    font-family: 'Itim', sans-serif !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 10px 25px rgba(66, 153, 225, 0.2) !important;
+    padding: 2rem !important;
+  }
+  
+  .custom-swal-title {
+    font-family: 'Itim', sans-serif !important;
+    color: #2d3748 !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    padding-top: 1rem !important;
+  }
+  
+  .custom-swal-content {
+    padding: 1rem 0 !important;
+  }
+  
+  .custom-swal-icon {
+    border-color: #4299e1 !important;
+  }
+  
+  .custom-swal-icon.swal2-warning {
+    color: #4299e1 !important;
+    border-color: #4299e1 !important;
+  }
+  
+  .custom-swal-message {
+    font-family: 'Itim', sans-serif !important;
+    font-size: 1.1rem !important;
+    color: #4a5568 !important;
+    margin: 1rem 0 !important;
+  }
+  
+  .custom-swal-confirm-button,
+  .custom-swal-cancel-button {
+    padding: 0.8rem 1.5rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    border-radius: 0.5rem !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Itim', sans-serif !important;
+  }
+  
+  
+  .custom-swal-confirm-button:hover,
+  .custom-swal-cancel-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .custom-swal-backdrop {
+    backdrop-filter: blur(4px) !important;
+  }
+  
+  /* Animation classes */
+  .swal2-popup.swal2-show {
+    animation: customFadeIn 0.3s ease-out !important;
+  }
+  
+  .swal2-popup.swal2-hide {
+    animation: customFadeOut 0.3s ease-in !important;
+  }
+  
+  @keyframes customFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes customFadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
