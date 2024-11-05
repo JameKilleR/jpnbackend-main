@@ -23,11 +23,11 @@ const generateOtp = () => {
 };
 
 const db = mysql.createConnection({
-  host: "26.11.35.119",
-  user: "root",
-  password: "root",
-  database: "jpn-project",
-  port: 3306,
+  host: process.env.DB_HOST,      // ใช้ environment variable
+  user: process.env.DB_USER,      // ใช้ environment variable
+  password: process.env.DB_PASSWORD, // ใช้ environment variable
+  database: process.env.DB_NAME,   // ใช้ environment variable
+  port: process.env.DB_PORT || 3306, // ใช้ environment variable หรือค่า default
 });
 
 db.connect((err) => {
